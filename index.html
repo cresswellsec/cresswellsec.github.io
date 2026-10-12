@@ -4,311 +4,204 @@
   <meta charset="utf-8" />
   <title>Casey Cresswell | Cyber Security Engineer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Casey Cresswell – CISSP-certified Cyber Security Engineer specializing in Zero Trust, Privileged Access Management, and accreditation-ready security architectures." />
+  <meta name="description" content="Casey Cresswell – CISSP-certified Cyber Security Engineer. Projects, focus areas and key technologies." />
   <style>
+    /* Same colour tokens as the 2210 IT Jobs site; dark mode follows the system setting. */
     :root {
-      --bg: #0f172a;
-      --bg-alt: #020617;
-      --card: #020617;
-      --border: #1e293b;
-      --text: #e5e7eb;
-      --muted: #9ca3af;
-      --accent: #38bdf8;
-      --accent-soft: rgba(56,189,248,0.08);
-      --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-                   sans-serif;
-      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-                   "Liberation Mono", "Courier New", monospace;
+      color-scheme: light dark;
+      --bg: #ffffff;
+      --panel: #eff6ff;
+      --fg: #0f172a;
+      --muted: #475569;
+      --line: #cbd5e1;
+      --chip: #e2e8f0;
+      --accent: #1d4ed8;
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html, body {
-      margin: 0;
-      padding: 0;
-      background: radial-gradient(circle at top left, #1f2937, #020617 55%);
-      color: var(--text);
-      font-family: var(--font-main);
-      line-height: 1.6;
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0b1120;
+        --panel: #172036;
+        --fg: #e5e7eb;
+        --muted: #9ca3af;
+        --line: #334155;
+        --chip: #1f2937;
+        --accent: #93c5fd;
+      }
     }
 
     body {
-      display: flex;
-      justify-content: center;
-      padding: 2.5rem 1.25rem 3.5rem;
+      margin: 0 auto;
+      max-width: 760px;
+      padding: 2.5rem 1rem 3rem;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
     }
 
-    main {
-      width: 100%;
-      max-width: 860px;
-      background: linear-gradient(135deg, rgba(148,163,184,0.06), rgba(15,23,42,0.98));
-      border-radius: 1.25rem;
-      border: 1px solid rgba(148,163,184,0.35);
-      box-shadow:
-        0 22px 45px rgba(15,23,42,0.9),
-        0 0 0 1px rgba(15,23,42,0.9);
-      padding: 2.5rem 2.25rem 2.75rem;
-    }
-
-    @media (max-width: 640px) {
-      body {
-        padding: 1.25rem 0.75rem 2.5rem;
-      }
-      main {
-        padding: 1.75rem 1.5rem 2.25rem;
-        border-radius: 1rem;
-      }
+    a {
+      color: var(--accent);
     }
 
     header {
-      border-bottom: 1px solid rgba(148,163,184,0.35);
-      padding-bottom: 1.75rem;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 1.25rem;
       margin-bottom: 1.75rem;
     }
 
     h1 {
+      margin: 0 0 0.25rem;
+      font-size: 2rem;
+    }
+
+    h2 {
+      margin: 2rem 0 0.75rem;
+      font-size: 0.95rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    h3 {
       margin: 0 0 0.35rem;
-      font-size: clamp(1.9rem, 2.5vw + 1rem, 2.3rem);
-      letter-spacing: 0.03em;
+      font-size: 1.15rem;
+    }
+
+    p, ul {
+      margin: 0 0 0.7rem;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+    }
+
+    .tagline, .muted {
+      color: var(--muted);
     }
 
     .tagline {
-      margin: 0 0 1.25rem;
-      color: var(--muted);
-      font-size: 0.98rem;
+      margin-bottom: 0.75rem;
     }
 
     .contact {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.65rem 1.25rem;
-      font-size: 0.92rem;
+      gap: 0.4rem 1.25rem;
     }
 
-    .contact a {
-      color: var(--accent);
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-      padding-bottom: 0.06rem;
+    .project {
+      border: 1px solid var(--line);
+      border-radius: 0.6rem;
+      padding: 1rem 1.15rem;
+      margin-bottom: 1rem;
     }
 
-    .contact a:hover,
-    .contact a:focus-visible {
-      border-color: rgba(56,189,248,0.6);
+    .project--featured {
+      background: var(--panel);
     }
 
-    section {
-      margin-bottom: 1.75rem;
-    }
-
-    section:last-of-type {
-      margin-bottom: 0;
-    }
-
-    h2 {
-      margin: 0 0 0.75rem;
-      font-size: 1.1rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--muted);
+    .project .go {
       font-weight: 600;
     }
 
-    .card {
-      background: rgba(15,23,42,0.9);
-      border-radius: 0.9rem;
-      border: 1px solid rgba(148,163,184,0.35);
-      padding: 1.1rem 1.2rem;
-    }
-
-    p {
-      margin: 0 0 0.7rem;
-      font-size: 0.98rem;
-    }
-
-    p:last-child {
-      margin-bottom: 0;
-    }
-
-    .split {
-      display: grid;
-      grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.6fr);
-      gap: 1.25rem;
-      align-items: start;
-    }
-
-    @media (max-width: 768px) {
-      .split {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    ul {
-      margin: 0.15rem 0 0;
-      padding-left: 1.1rem;
-      font-size: 0.96rem;
-    }
-
-    li + li {
-      margin-top: 0.25rem;
-    }
-
-    .pill-row {
+    .chips {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.45rem;
-      margin-top: 0.4rem;
+      gap: 0.4rem;
+      padding: 0;
+      list-style: none;
     }
 
-    .pill {
-      font-family: var(--font-mono);
-      font-size: 0.78rem;
-      padding: 0.2rem 0.55rem;
+    .chips li {
+      background: var(--chip);
       border-radius: 999px;
-      border: 1px solid rgba(148,163,184,0.4);
-      background: rgba(15,23,42,0.95);
-      color: var(--muted);
-      white-space: nowrap;
-    }
-
-    .pill--accent {
-      border-color: rgba(56,189,248,0.7);
-      background: var(--accent-soft);
-      color: var(--accent);
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      padding: 0.1rem 0.55rem;
-      border-radius: 999px;
-      border: 1px solid rgba(74,222,128,0.5);
-      background: rgba(22,163,74,0.09);
-      font-size: 0.75rem;
-      font-family: var(--font-mono);
-      color: #bbf7d0;
-      margin-bottom: 0.6rem;
-    }
-
-    .badge span:first-child {
-      font-size: 0.95rem;
-    }
-
-    .muted {
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    .projects-note {
-      border-radius: 0.75rem;
-      border: 1px dashed rgba(148,163,184,0.65);
-      padding: 0.75rem 0.9rem;
-      background: rgba(15,23,42,0.8);
-      font-size: 0.9rem;
-      color: var(--muted);
+      padding: 0.1rem 0.65rem;
+      font-size: 0.85rem;
     }
 
     footer {
-      margin-top: 2.2rem;
-      border-top: 1px solid rgba(148,163,184,0.35);
-      padding-top: 0.9rem;
-      font-size: 0.8rem;
+      margin-top: 2.5rem;
+      border-top: 1px solid var(--line);
+      padding-top: 0.75rem;
+      font-size: 0.85rem;
       color: var(--muted);
-      text-align: right;
-    }
-
-    @media (max-width: 640px) {
-      footer {
-        text-align: left;
-      }
     }
   </style>
 </head>
 <body>
+  <header>
+    <h1>Casey Cresswell</h1>
+    <p class="tagline">
+      CISSP-certified Cyber Security Engineer &mdash; Privileged Access Management, Zero Trust, and accreditation-ready architectures for federal and defense CIS.
+    </p>
+    <div class="contact">
+      <a href="mailto:casey@cresswell.io">casey@cresswell.io</a>
+      <a href="https://www.linkedin.com/in/caseycresswell">LinkedIn</a>
+    </div>
+  </header>
+
   <main>
-    <header>
-      <h1>Casey Cresswell</h1>
-      <p class="tagline">
-        CISSP-certified Cyber Security Engineer &mdash; Privileged Access Management, Zero Trust, and accreditation-ready architectures for federal and defense CIS.
-      </p>
-      <div class="contact">
-        <span><a href="mailto:casey@cresswell.io">casey@cresswell.io</a></span>
-        <span><a href="https://www.linkedin.com/in/caseycresswell" target="_blank" rel="noopener">LinkedIn</a></span>
-      </div>
-    </header>
+    <section>
+      <h2>Projects</h2>
+
+      <article class="project project--featured">
+        <h3><a href="https://cresswellsec.github.io/2210StaticSite/">2210 IT Jobs</a></h3>
+        <p>
+          An at-a-glance table of every open federal IT Specialist (series 2210) job on USAJOBS:
+          dates, agency, title, grade, location and a link to each posting.
+        </p>
+        <p>
+          Keyword search plus &ldquo;vector similarity&rdquo; results computed at build time from
+          pre-made embeddings &mdash; no server, no database, no AI model in the browser. A separate
+          data pipeline fetches and cleans USAJOBS data, chunks and embeds it, and publishes a
+          dataset; the site is rebuilt from fresh data with one command.
+        </p>
+        <p class="go"><a href="https://cresswellsec.github.io/2210StaticSite/">Open the job table &rarr;</a></p>
+      </article>
+    </section>
 
     <section>
       <h2>Overview</h2>
-      <div class="card">
-        <div class="badge">
-          <span>●</span>
-          <span>CISSP (ISC²), 2025</span>
-        </div>
-        <p>
-          I work on cyber stuff.
-        </p>
-        <p>
-          I enjoy working on zero trust stuff. 
-        </p>
-        <p>
-          I’m also developing a Retrieval-Augmented Generation (RAG) project aimed at AI-driven security analysis and evidence generation. Details and a live demo will be added once the project is ready for public release.
-        </p>
-      </div>
-    </section>
-
-    <section class="split">
-      <div>
-        <h2>Focus Areas</h2>
-        <div class="card">
-          <ul>
-            <li>Designing and hardening Zero-Trust and Privileged Access Management architectures across hybrid-cloud and on-prem CIS environments.</li>
-            <li>Producing accreditation evidence for FISMA Moderate/High and DoD DISA SRG IL4/IL5 systems.</li>
-            <li>Leading enterprise vulnerability management and developing custom remediation strategies for complex findings.</li>
-            <li>Using Infrastructure-as-Code (Terraform, Ansible, GitHub Actions) to make security controls repeatable and auditable.</li>
-          </ul>
-        </div>
-      </div>
-      <div>
-        <h2>Key Technologies</h2>
-        <div class="card">
-          <div class="pill-row">
-            <span class="pill pill--accent">CISSP</span>
-            <span class="pill">CyberArk PAM / Conjur</span>
-            <span class="pill">Zero Trust / AppGate SDP</span>
-            <span class="pill">AWS GuardDuty / Security Hub</span>
-            <span class="pill">Nessus · ORCA</span>
-            <span class="pill">Terraform</span>
-            <span class="pill">Ansible</span>
-            <span class="pill">GitHub Actions</span>
-            <span class="pill">NIST SP 800-53 r5</span>
-            <span class="pill">DISA SRG IL4/IL5</span>
-          </div>
-        </div>
-      </div>
+      <p class="muted">CISSP (ISC²), 2025</p>
+      <p>
+        I work on cyber stuff.
+      </p>
+      <p>
+        I enjoy working on zero trust stuff.
+      </p>
+      <p>
+        I’m also developing a Retrieval-Augmented Generation (RAG) project aimed at AI-driven security analysis and evidence generation. Details and a live demo will be added once the project is ready for public release.
+      </p>
     </section>
 
     <section>
-      <h2>Projects</h2>
-      <div class="projects-note">
-        My current Retrieval-Augmented Generation (RAG) security project will be linked here once the public demo is ready. The project focuses on using AI to interpret, contextualize, and help generate accreditation evidence across complex CIS environments.
-      </div>
+      <h2>Focus Areas</h2>
+      <ul>
+        <li>Designing and hardening Zero-Trust and Privileged Access Management architectures across hybrid-cloud and on-prem CIS environments.</li>
+        <li>Producing accreditation evidence for FISMA Moderate/High and DoD DISA SRG IL4/IL5 systems.</li>
+        <li>Leading enterprise vulnerability management and developing custom remediation strategies for complex findings.</li>
+        <li>Using Infrastructure-as-Code (Terraform, Ansible, GitHub Actions) to make security controls repeatable and auditable.</li>
+      </ul>
     </section>
 
-    <footer>
-      <span class="muted">
-        © <span id="year"></span> Casey Cresswell
-      </span>
-    </footer>
+    <section>
+      <h2>Key Technologies</h2>
+      <ul class="chips">
+        <li>CISSP</li>
+        <li>CyberArk PAM / Conjur</li>
+        <li>Zero Trust / AppGate SDP</li>
+        <li>AWS GuardDuty / Security Hub</li>
+        <li>Nessus · ORCA</li>
+        <li>Terraform</li>
+        <li>Ansible</li>
+        <li>GitHub Actions</li>
+        <li>NIST SP 800-53 r5</li>
+        <li>DISA SRG IL4/IL5</li>
+      </ul>
+    </section>
   </main>
 
-  <script>
-    (function () {
-      var span = document.getElementById("year");
-      if (span) span.textContent = new Date().getFullYear();
-    })();
-  </script>
+  <footer>© Casey Cresswell</footer>
 </body>
 </html>
