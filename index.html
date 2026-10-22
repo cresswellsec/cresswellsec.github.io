@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Casey Cresswell | Cyber Security Engineer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Casey Cresswell – CISSP-certified Cyber Security Engineer. Projects, focus areas and key technologies." />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self'; base-uri 'none'; form-action 'none'" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <style>
+    /* Same colour tokens as the 2210 IT Jobs site; dark mode follows the system setting. */
+    :root {
+      color-scheme: light dark;
+      --bg: #ffffff;
+      --panel: #eff6ff;
+      --fg: #0f172a;
+      --muted: #475569;
+      --line: #cbd5e1;
+      --chip: #e2e8f0;
+      --accent: #1d4ed8;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0b1120;
+        --panel: #172036;
+        --fg: #e5e7eb;
+        --muted: #9ca3af;
+        --line: #334155;
+        --chip: #1f2937;
+        --accent: #93c5fd;
+      }
+    }
+    body {
+      margin: 0 auto;
+      max-width: 760px;
+      padding: 2.5rem 1rem 3rem;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+    }
+    a { color: var(--accent); }
+    header {
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 1.25rem;
+      margin-bottom: 1.75rem;
+    }
+    h1 { margin: 0 0 0.25rem; font-size: 2rem; }
+    h2 {
+      margin: 2rem 0 0.75rem;
+      font-size: 0.95rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    h3 { margin: 0 0 0.35rem; font-size: 1.15rem; }
+    p, ul { margin: 0 0 0.7rem; }
+    ul { padding-left: 1.2rem; }
+    .tagline, .muted { color: var(--muted); }
+    .tagline { margin-bottom: 0.75rem; }
+    .contact { display: flex; flex-wrap: wrap; gap: 0.4rem 1.25rem; }
+    .project {
+      border: 1px solid var(--line);
+      border-radius: 0.6rem;
+      padding: 1rem 1.15rem;
+      margin-bottom: 1rem;
+    }
+    .project--featured { background: var(--panel); }
+    .project .go { font-weight: 600; }
+    .project .chips { margin: 0.2rem 0 0.8rem; }
+    .chips { display: flex; flex-wrap: wrap; gap: 0.4rem; padding: 0; list-style: none; }
+    .chips li {
+      background: var(--chip);
+      border-radius: 999px;
+      padding: 0.1rem 0.65rem;
+      font-size: 0.85rem;
+    }
+    footer {
+      margin-top: 2.5rem;
+      border-top: 1px solid var(--line);
+      padding-top: 0.75rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Casey Cresswell</h1>
+    <p class="tagline">CISSP-certified Cyber Security Engineer — Privileged Access Management, Zero Trust, and accreditation-ready architectures for federal and defense CIS.</p>
+    <div class="contact">
+      <a href="mailto:casey@cresswell.io">casey@cresswell.io</a>
+      <a href="https://www.linkedin.com/in/caseycresswell">LinkedIn</a>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <h2>Projects</h2>
+
+      <article class="project project--featured">
+        <h3><a href="https://cresswell.io/2210StaticSite/">2210 IT Jobs</a></h3>
+        <p>Most people on USAJOBS.gov only need jobs in their own profession, and the main site can be cumbersome for that. I built a static site generator, inspired by Hugo (which I used years ago), that publishes every open federal IT Specialist (2210) job as one fast table with keyword and vector similarity search.</p>
+        <p>A separate data pipeline cleans, formats and embeds the postings on a slow refresh, since federal jobs don’t need second-by-second updates. The generator pulls that data at build time and ships a plain static page: no server, no database, no AI model in the browser.</p>
+        <ul class="chips" aria-label="Tech stack">
+          <li>JAMstack</li>
+          <li>TypeScript</li>
+          <li>React</li>
+          <li>Vite</li>
+          <li>Tailwind CSS</li>
+          <li>Web Workers</li>
+          <li>BM25 + vector similarity</li>
+          <li>Python</li>
+          <li>GitHub Pages</li>
+        </ul>
+        <p class="go"><a href="https://cresswell.io/2210StaticSite/">Open the job table →</a></p>
+      </article>
+
+      <article class="project">
+        <h3><a href="https://github.com/cresswellsec/Agent-Source-Code">Agent Source Code</a></h3>
+        <p>GitOps agents that run on AWS Bedrock and answer slash commands in GitHub. A comment like /hirobot on an issue or pull request sends a webhook through API Gateway to a Python Lambda. The Lambda asks a Bedrock model and posts the answer back as a comment.</p>
+        <p>The Lambda’s IAM role is scoped to a single Bedrock model and to its own secrets and logs. A GitHub Actions workflow can deploy it through OIDC, so no AWS keys are stored in GitHub. The first agent, hirobot, proved the full loop and has since been retired.</p>
+        <ul class="chips" aria-label="Tech stack">
+          <li>Python</li>
+          <li>AWS Lambda</li>
+          <li>API Gateway</li>
+          <li>AWS Bedrock (Nova Micro)</li>
+          <li>Secrets Manager</li>
+          <li>IAM</li>
+          <li>GitHub webhooks</li>
+          <li>GitHub Actions (OIDC)</li>
+        </ul>
+        <p class="go"><a href="https://github.com/cresswellsec/Agent-Source-Code">View the source on GitHub →</a></p>
+      </article>
+
+      <article class="project">
+        <h3><a href="https://github.com/cresswellsec/agent-target-project">Agent Target Project</a></h3>
+        <p>The repo the agents work in. Slash commands go in its issues and the agent replies there, so issue #1 shows the round trip. It will also hold the schemas, policies and code for the agents to analyze.</p>
+        <p class="go"><a href="https://github.com/cresswellsec/agent-target-project">View the repo on GitHub →</a></p>
+      </article>
+    </section>
+
+    <section>
+      <h2>Overview</h2>
+      <p class="muted">CISSP (ISC²), 2025</p>
+      <p>I work on privileged identity and zero trust. My personal projects are in agentic security.</p>
+      <p>I’ve built compliance frameworks on NIST for FISMA systems and aligned them with COSO.</p>
+    </section>
+
+    <section>
+      <h2>Key Technologies</h2>
+      <ul class="chips">
+        <li>CISSP</li>
+        <li>CyberArk PAM / Conjur</li>
+        <li>Zero Trust / AppGate SDP</li>
+        <li>AWS GuardDuty / Security Hub</li>
+        <li>AWS Bedrock</li>
+        <li>Nessus · ORCA</li>
+        <li>Terraform</li>
+        <li>Ansible</li>
+        <li>GitHub Actions</li>
+        <li>Cloudflare Workers (cron)</li>
+        <li>Hugging Face</li>
+        <li>Jira</li>
+        <li>NIST SP 800-53 r5</li>
+        <li>DISA SRG IL4/IL5</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Focus Areas</h2>
+      <ul>
+        <li>Designing and hardening Zero-Trust and Privileged Access Management architectures across hybrid-cloud and on-prem CIS environments.</li>
+        <li>Producing accreditation evidence for FISMA Moderate/High and DoD DISA SRG IL4/IL5 systems.</li>
+        <li>Leading enterprise vulnerability management and developing custom remediation strategies for complex findings.</li>
+        <li>Using Infrastructure-as-Code (Terraform, Ansible, GitHub Actions) to make security controls repeatable and auditable.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>© Casey Cresswell</p>
+    <p>This page is built and published by my own static site generator, which lives in a private repo.</p>
+    <p>Built with generative AI and a human in the loop, at least until the autocoders take over.</p>
+  </footer>
+</body>
+</html>
